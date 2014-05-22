@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.1'
+gem 'grape', '~> 0.7.0'
+gem 'grape-entity'
+gem 'grape-kaminari'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
 gem 'mongoid', '~> 4.0.0.beta1'
 gem 'mongoid_embed_finder', '~> 0.0.4'
 gem 'spring', group: :development
