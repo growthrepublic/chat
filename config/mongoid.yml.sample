@@ -1,0 +1,13 @@
+development:
+  sessions:
+    default:
+      database: chat_development
+      hosts:
+        - localhost:27017
+
+test:
+  sessions:
+    default:
+      database: chat_test
+      hosts:
+        - localhost:27017
