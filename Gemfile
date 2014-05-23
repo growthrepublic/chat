@@ -10,6 +10,11 @@ gem 'mongoid', '~> 4.0.0.beta1'
 gem 'mongoid_embed_finder', '~> 0.0.4'
 gem 'spring', group: :development
 
+gem 'redis'
+gem 'puma'
+gem 'tubesock', '~> 0.2.3'
+gem 'websocket_messaging', '~> 0.0.1'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-nav'
