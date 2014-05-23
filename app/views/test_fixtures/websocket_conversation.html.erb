@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Chat</h1>
+
+    <% @data.subscribers.each do |user_id| %>
+      <section id="user-<%= user_id %>">
+        <pre class="messages"></pre>
+        <form class="chat" action="javascript://">
+          <input type="text" name="message_text" autofocus>
+          <input type="submit" id="submit-message" />
+        </form>
+      </section>
+    <% end %>
+
+    <script type="text/javascript">
+      function Client(id) {
+        this.id = id;
+      }
+
+      Client.prototype.init = function() {
+        this.openSocket();
+        this.cacheHTMLElements();
+        this.bindEvents();
+      };
+
+      Client.prototype.openSocket = function() {
+        this.socket = new WebSocket("ws://<%= @data.server %>/chat/v1/users/" + this.id);
+      };
+
+      Client.prototype.cacheHTMLElements = function() {
+        var section = document.querySelector("#user-" + this.id);
+        this.output = section.querySelector(".messages");
+        this.form   = section.querySelector("form");
+        this.input  = this.form.querySelector("[type='text']");
+      };
+
+      Client.prototype.bindEvents = function() {
+        var _that = this;
+
+        this.socket.onmessage = function(event) {
+          if (event.data.length) {
+            var message = document.createElement("div");
+            message.innerHTML = event.data;
+            _that.output.appendChild(message);
+          }
+        };
+
+        this.form.onsubmit = function(event) {
+          var data = {
+            conversation_id: "<%= @data.conversation_id %>",
+            type: "message",
+            body: _that.input.value
+          };
+
+          console.log("send message");
+          _that.socket.send(JSON.stringify(data));
+          _that.input.value = null;
+
+          return false;
+        };
+      };
+
+      var clients = <%=raw @data.subscribers.inspect %>.map(function(user_id) {
+        var client = new Client(user_id);
+        client.init();
+      });
+    </script>
+  </body>
+</html>
