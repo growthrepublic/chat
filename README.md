@@ -78,6 +78,9 @@ To obtain a paginated list of messages make a GET request to `/api/v1/conversati
 
 Sending messages is done by websockets. It has to be a serialized JSON object. Required fields are: `type`, `body` and `conversation_id`. Type should be set to `message`. Let's assume that in the future there will be other types like information about seeing a message by someone else.
 
+#### Channels
+
+Each user has its own channel, which all of the messages are sent through. It does not matter what conversation they belong to as long as user subscribes them. WebSockets can be found at `/chat/v1/users/<user_id>`.
 
 ### Tests
 
