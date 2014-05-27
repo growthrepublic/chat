@@ -15,11 +15,15 @@ We have not added authentication because of two reasons:
 
 Clone this repository to your machine with:
 
+```
   git clone git@github.com:growthrepublic/chat.git
+```
 
 It will create a directory with the same name as repository and put everything there. Go to that directory and install dependencies:
 
+```
   bundle install
+```
 
 At the moment of writing we use Ruby 2.1.1. Probably any Ruby 2.x.x will work just fine.
 
@@ -34,7 +38,9 @@ You can install it easily by downloading [binaries](https://fastdl.mongodb.org/o
 
 Redis on OSX can be installed using [Homebrew](http://brew.sh/):
 
+```
   brew install redis
+```
 
 Read more on the [official website](http://redis.io/).
 
@@ -50,12 +56,15 @@ If you are using custom configuration for Redis make sure to reflect it in `conf
 
 To run the entire suite make sure that you have `chromedriver` installed. On OSX we recommend to use [Homebrew](http://brew.sh/) to manage system dependencies. You can install chromedriver:
 
+```
   brew install chromedriver
+```
 
 Then run tests with:
 
+```
   bin/rspec spec
-
+```
 
 ### Contributing
 
