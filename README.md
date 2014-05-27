@@ -54,6 +54,31 @@ Make sure to edit `config/secrets.yml` and copy `config/mongoid.yml.sample` as `
 If you are using custom configuration for Redis make sure to reflect it in `config/initializers/websocket_messaging.rb`.
 
 
+### Usage
+
+Before sending a message user has to subscribe to a conversation first. It can be done either by creating a new one or by being invited to an already existing one.
+
+#### Starting a conversation
+
+You can start a conversation by making a POST request to `/api/v1/conversations?people_ids[]=<id>&people_ids[]=<id>`. In return  you will get a newly created conversation, which contains its unique `id`.
+
+#### Invite to a conversation
+
+If conversation has been already created, you can invite others to join it by making a POST request to `/api/v1/conversations/<conversation_id>/invite?people_ids[]=<id>&people_ids[]=<id>`. In return you will get an updated conversation.
+
+#### List conversations
+
+To obtain a paginated list of conversations user is subscribed to make a GET request to `/api/v1/conversations?user_id=<id>&page=<page>&per_page=<per_page>`. It returns recently active first.
+
+#### List conversation messages
+
+To obtain a paginated list of messages make a GET request to `/api/v1/conversations/<conversation_id>/messages?page=<page>&per_page=<per_page>`. It returns list of messages with most recent first.
+
+#### Sending messages
+
+Sending messages is done by websockets. It has to be a serialized JSON object. Required fields are: `type`, `body` and `conversation_id`. Type should be set to `message`. Let's assume that in the future there will be other types like information about seeing a message by someone else.
+
+
 ### Tests
 
 To run the entire suite make sure that you have `chromedriver` installed. On OSX we recommend to use [Homebrew](http://brew.sh/) to manage system dependencies. You can install chromedriver:
