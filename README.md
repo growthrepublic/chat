@@ -1,5 +1,7 @@
 ## Chat
 
+[![Code Climate](https://codeclimate.com/github/growthrepublic/chat.png)](https://codeclimate.com/github/growthrepublic/chat)
+
 This is an app for group conversations using websockets. It provides versioned API for managing conversations as well as versioned messaging through websockets.
 
 Thanks to [Nick Gauthier](https://github.com/ngauthier/tubesock), it leverages Rails 4's new full-stack concurrency support. Therefore we have used a concurrent server of choice - Puma.
