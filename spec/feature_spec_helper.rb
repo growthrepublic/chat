@@ -33,6 +33,10 @@ RSpec.configure do |config|
   config.include PageFixtures, type: :feature
   config.include FactoryGirl::Syntax::Methods
 
+  config.prepend_before(:each) do
+    Mongoid.purge!
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
