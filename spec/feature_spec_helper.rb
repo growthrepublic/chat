@@ -31,7 +31,7 @@ RSpec.configure do |config|
   # config.mock_with :rr
 
   config.include DatabaseCleaner
-  config.include HtmlFixtures
+  config.include PageFixtures, type: :feature
   config.include FactoryGirl::Syntax::Methods
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

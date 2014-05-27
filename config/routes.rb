@@ -7,8 +7,4 @@ Rails.application.routes.draw do
       resources :users, only: [:show]
     end
   end
-
-  if Rails.env.test?
-    resources :test_fixtures, only: [:show]
-  end
 end
