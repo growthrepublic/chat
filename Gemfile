@@ -20,9 +20,9 @@ group :development, :test do
   gem 'pry-nav'
   gem 'rspec-rails', '~> 3.0.0.rc1'
   gem 'rspec-mocks'
+  gem 'rspec-its'
   gem 'capybara-puma'
   gem 'selenium-webdriver'
-  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'zip'
 end

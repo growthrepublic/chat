@@ -9,7 +9,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include RequestHelpers, type: :request
 
-  config.before(:each) do
+  config.prepend_before(:each) do
     Mongoid.purge!
   end
 

@@ -54,7 +54,6 @@ GEM
       descendants_tracker (~> 0.0.1)
     columnize (0.8.9)
     connection_pool (2.0.0)
-    database_cleaner (1.2.0)
     debugger-linecache (1.2.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -167,6 +166,9 @@ GEM
     rspec-expectations (3.0.0.rc1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (= 3.0.0.rc1)
+    rspec-its (1.0.1)
+      rspec-core (>= 2.99.0.beta1)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-mocks (3.0.0.rc1)
       rspec-support (= 3.0.0.rc1)
     rspec-rails (3.0.0.rc1)
@@ -222,7 +224,6 @@ PLATFORMS
 
 DEPENDENCIES
   capybara-puma
-  database_cleaner
   factory_girl_rails
   grape (~> 0.7.0)
   grape-entity
@@ -236,6 +237,7 @@ DEPENDENCIES
   puma
   rails (~> 4.1.1)
   redis
+  rspec-its
   rspec-mocks
   rspec-rails (~> 3.0.0.rc1)
   selenium-webdriver

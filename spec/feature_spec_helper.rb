@@ -30,7 +30,6 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
 
-  config.include DatabaseCleaner
   config.include PageFixtures, type: :feature
   config.include FactoryGirl::Syntax::Methods
 
