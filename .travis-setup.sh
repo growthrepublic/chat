@@ -39,8 +39,6 @@ sudo md5sum $CHROME_SANDBOX
 
 google-chrome --version
 
-$CHROME_DRIVER_ZIP=/tmp/chromedriver.zip
-
 sudo apt-get install unzip
-sudo wget http://chromedriver.storage.googleapis.com/2.10/chromedriver_linux64.zip -O $CHROME_DRIVER_ZIP
-sudo unzip $CHROME_DRIVER_ZIP -d /bin # should be in $PATH already
+sudo wget http://chromedriver.storage.googleapis.com/2.10/chromedriver_linux64.zip -O /tmp/chromedriver.zip
+sudo unzip /tmp/chromedriver.zip -d /bin # should be in $PATH already
