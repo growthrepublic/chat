@@ -41,4 +41,11 @@ google-chrome --version
 
 sudo apt-get install unzip
 sudo wget http://chromedriver.storage.googleapis.com/2.10/chromedriver_linux64.zip -O /tmp/chromedriver.zip
-sudo unzip /tmp/chromedriver.zip -d /bin # should be in $PATH already
+sudo unzip /tmp/chromedriver.zip -d /usr/bin # should be in $PATH already
+sudo chmod +x /usr/bin/chromedriver
+
+# expected location by chromedriver
+sudo ln -s $CHROME_SANDBOX /usr/bin/google-chrome
+sudo chmod +x /usr/bin/google-chrome
+
+sudo ls -l /usr/bin
