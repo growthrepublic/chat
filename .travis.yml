@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.1.1
+services:
+  - mongodb
+  - redis-server
+before_script:
+  - cp config/mongoid.yml.sample config/mongoid.yml
+script:
+  - bundle exec rspec
+before_install:
+  - ./.travis-setup.sh
